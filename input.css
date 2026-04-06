@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* 1. SOURCE DETECTION FIX */
+/* This tells Tailwind exactly which file to scan for classes */
+@source "./index.html";
+
+/* 2. LOCAL FONTS SETUP */
+/* Borel - Studio Logo */
+@font-face {
+  font-family: 'Borel';
+  src: url('./assets/fonts/borel/borel-v10-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Quicksand - Added multiple weights for a polished look */
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./assets/fonts/quicksand/quicksand-v31-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('./assets/fonts/quicksand/quicksand-v31-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Playfair Display - Added Bold and Italic */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/playfair_display/playfair-display-v38-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/playfair_display/playfair-display-v38-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('./assets/fonts/playfair_display/playfair-display-v38-latin-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* 3. TAILWIND V4 THEME */
+@theme {
+  /* Mapping fonts to standard Tailwind utilities */
+  --font-sans: "Quicksand", ui-sans-serif, system-ui;
+  --font-serif: "Playfair Display", ui-serif, Georgia;
+  --font-logo: "Borel", cursive;
+
+  /* Custom Colors - Now accessible as bg-cafe-brown, text-bubblegum, etc. */
+  --color-cafe-brown: #8c6a53;
+  --color-cafe-dark: #6f5341;
+  --color-cafe-cream: #fdfaf6;
+  --color-bubblegum: #ffc1d6; 
+  --color-royal-blue: #4169e1;
+}
+
+/* 4. CUSTOM UTILITIES */
+/* Simplified syntax for v4 theme variables */
+@utility btn-primary {
+  @apply bg-cafe-brown text-white transition-all duration-300 hover:bg-cafe-dark hover:scale-105 shadow-md active:scale-95;
+}
+
+@utility btn-secondary {
+  @apply border-2 border-cafe-brown text-cafe-brown transition-all duration-300 hover:bg-[#f5eee6] active:scale-95;
+}
+
+/* Custom card effect for your features section */
+@utility cafe-card {
+  @apply bg-white border border-stone-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+}

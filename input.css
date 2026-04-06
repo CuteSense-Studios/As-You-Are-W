@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 /* 1. SOURCE DETECTION FIX */
-/* This tells Tailwind exactly which file to scan for classes */
 @source "./index.html";
 
 /* 2. LOCAL FONTS SETUP */
@@ -14,7 +13,7 @@
   font-display: swap;
 }
 
-/* Quicksand - Added multiple weights for a polished look */
+/* Quicksand - Body Font */
 @font-face {
   font-family: 'Quicksand';
   src: url('./assets/fonts/quicksand/quicksand-v31-latin-regular.woff2') format('woff2');
@@ -28,7 +27,7 @@
   font-display: swap;
 }
 
-/* Playfair Display - Added Bold and Italic */
+/* Playfair Display - Serif Accent Font */
 @font-face {
   font-family: 'Playfair Display';
   src: url('./assets/fonts/playfair_display/playfair-display-v38-latin-regular.woff2') format('woff2');
@@ -56,7 +55,7 @@
   --font-serif: "Playfair Display", ui-serif, Georgia;
   --font-logo: "Borel", cursive;
 
-  /* Custom Colors */
+  /* Tiaya's Palette */
   --color-cafe-brown: #8c6a53;
   --color-cafe-dark: #6f5341;
   --color-cafe-cream: #fdfaf6;
@@ -66,6 +65,11 @@
 }
 
 /* 4. CUSTOM UTILITIES */
+/* Explicitly defining font-logo to ensure it overrides inherited serif styles */
+@utility font-logo {
+  font-family: 'Borel', cursive !important;
+}
+
 @utility btn-primary {
   @apply bg-cafe-brown text-white transition-all duration-300 hover:bg-cafe-dark hover:scale-105 shadow-md active:scale-95;
 }

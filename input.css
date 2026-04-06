@@ -56,16 +56,16 @@
   --font-serif: "Playfair Display", ui-serif, Georgia;
   --font-logo: "Borel", cursive;
 
-  /* Custom Colors - Now accessible as bg-cafe-brown, text-bubblegum, etc. */
+  /* Custom Colors */
   --color-cafe-brown: #8c6a53;
   --color-cafe-dark: #6f5341;
   --color-cafe-cream: #fdfaf6;
   --color-bubblegum: #ffc1d6; 
   --color-royal-blue: #4169e1;
+  --color-orange-red: #ff4500;
 }
 
 /* 4. CUSTOM UTILITIES */
-/* Simplified syntax for v4 theme variables */
 @utility btn-primary {
   @apply bg-cafe-brown text-white transition-all duration-300 hover:bg-cafe-dark hover:scale-105 shadow-md active:scale-95;
 }
@@ -74,7 +74,6 @@
   @apply border-2 border-cafe-brown text-cafe-brown transition-all duration-300 hover:bg-[#f5eee6] active:scale-95;
 }
 
-/* Custom card effect for your features section */
 @utility cafe-card {
   @apply bg-white border border-stone-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
 }

@@ -492,30 +492,38 @@
     </section>
 
     <footer class="py-20 border-t border-stone-200 bg-white">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
-            <div class="flex items-center">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col items-center gap-12 text-center">
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:text-left w-full">
+            <div class="flex-shrink-0" style="max-width: 110px;">
                 <img src="assets/icons/company_logo.webp" alt="CuteSense Studios Logo" 
-                     class="h-12 w-auto mr-4 object-contain" loading="lazy">
-                <div>
-                    <div class="text-4xl font-logo text-stone-800 leading-none">CuteSense Studios</div>
-                    <p class="text-stone-500 font-medium tracking-wide mt-2">Bringing cozy stories to life.</p>
-                </div>
+                     style="width: 100%; height: auto; max-height: 110px; object-fit: contain;" loading="lazy">
             </div>
-            <div class="flex flex-wrap justify-center gap-8 text-stone-600 font-bold uppercase text-[10px] tracking-[0.2em]">
-                <a href="https://cutesense-studios.github.io/Official-Website/" class="hover:text-amber-700 transition-colors">Official Website</a>
-                <a href="#about" class="hover:text-amber-700 transition-colors">About Game</a>
-                <a href="#characters" class="hover:text-amber-700 transition-colors">Characters</a>
-                <a href="https://github.com/CuteSense-Studios/As-You-Are-T" class="hover:text-amber-700 transition-colors" target="_blank">Source Code</a>
+            <div>
+                <div class="text-4xl font-logo text-stone-800 leading-none">CuteSense Studios</div>
+                <p class="text-stone-500 font-medium tracking-wide mt-2">Bringing cozy stories to life.</p>
             </div>
         </div>
+
+        <div class="flex flex-wrap justify-center text-stone-600 font-bold uppercase text-[10px] tracking-[0.2em] w-full">
+            <a href="https://cutesense-studios.github.io/Official-Website/" class="mx-5 my-2 hover:text-amber-700 transition-colors">Official Website</a>
+            <a href="#about" class="mx-5 my-2 hover:text-amber-700 transition-colors">About Game</a>
+            <a href="#characters" class="mx-5 my-2 hover:text-amber-700 transition-colors">Characters</a>
+            <a href="https://github.com/CuteSense-Studios/As-You-Are-T" class="mx-5 my-2 hover:text-amber-700 transition-colors" target="_blank">Source Code</a>
+        </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-stone-100 text-center text-stone-400 text-[10px] uppercase tracking-widest flex flex-col items-center gap-4">
+        <div class="font-bold px-4">© 2026 CuteSense Studios. Art and story developed with passion.</div>
         
-        <div class="mt-16 text-center text-stone-400 text-[10px] uppercase tracking-widest flex flex-col items-center gap-3">
-            <div class="font-bold">&copy; 2026 CuteSense Studios. Art and story developed with passion.</div>
-            <div class="flex items-center gap-4 text-stone-300 font-bold">
-                <span>CC BY-SA 4.0</span>
-            </div>
+        <div class="flex items-center justify-center gap-3 font-semibold text-stone-500 w-full">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-700 transition-colors">CC BY-SA 4.0</a>
+            <span class="w-1 h-1 rounded-full bg-stone-300 inline-block"></span>
+            <span class="tracking-widest">Generated with Gemini</span>
         </div>
-    </footer>
+
+        <div class="text-stone-300 text-[10px] tracking-wider mt-2">✦ Brewed with warmth — thank you for visiting the Syth Café ✦</div>
+    </div>
+</footer>
 
     <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">↑</button>
 

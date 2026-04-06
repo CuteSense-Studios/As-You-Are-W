@@ -2,7 +2,8 @@
 # Ignores the renamed binaries for Windows, Mac, and Linux
 tailwindcss
 tailwindcss.exe
-
+tailwind
+tailwind.exe 
 # Ignores the default downloaded filenames (e.g., tailwindcss-windows-x64.exe)
 tailwindcss-*
 

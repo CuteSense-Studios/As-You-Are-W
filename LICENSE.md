@@ -12,7 +12,7 @@ Copyright (c) 2026 CuteSense Studios.
 
 ## 1. The License
 
-This website (including its HTML, CSS, JavaScript code, design, layout, and original textual content) is licensed under the**Creative Commons Attribution-ShareAlike 4.0 International License**.
+This website (including its HTML, CSS, JavaScript code, design, layout, and original textual content) is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International License**.
 
 > **You are free to:**
 >

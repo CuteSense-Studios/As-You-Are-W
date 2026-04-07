@@ -1,7 +1,9 @@
 # License for “As You Are” Official Website
 
 **Project:** As You Are – Official Website
+
 **Studio:** CuteSense Studios
+
 **Author:** Crossie
 
 Copyright (c) 2026 CuteSense Studios.

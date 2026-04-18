@@ -6,47 +6,48 @@
     <title>As You Are — A Cozy Visual Novel</title>
     <meta name="description" content="As You Are: a heartfelt visual novel about running a café, brewing friendships, and finding belonging. From CuteSense Studios.">
     <meta name="theme-color" content="#fdfaf6">
-    
+
     <!-- Open Graph / Social -->
     <meta property="og:title" content="As You Are | CuteSense Studios">
     <meta property="og:description" content="Where every cup tells a story and every bond is brewed to perfection.">
     <meta property="og:image" content="images/banner/banner.webp">
     <meta property="og:type" content="website">
-    
+
     <link rel="icon" type="image/webp" href="assets/icons/web_fav.webp">
-    
+    <link rel="preload" as="image" href="images/banner/banner.webp" fetchpriority="high">
+
     <!-- External Stylesheets -->
     <link href="style.css" rel="stylesheet">
     <link href="cursor.css" rel="stylesheet">
-    
+
     <style>
         :root {
             scroll-behavior: smooth;
         }
-        
+
         a:focus-visible, button:focus-visible {
             outline: 2px solid #b45309;
             outline-offset: 2px;
             border-radius: 4px;
         }
-        
+
         .btn-primary, .btn-secondary, .cafe-card, .char-img-container img, nav a {
             transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        
+
         .cafe-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.15);
             border-color: #e2dcd6;
         }
-        
+
         .char-card {
             transition: transform 0.3s ease;
         }
         .char-card:hover {
             transform: translateY(-4px);
         }
-        
+
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -79,7 +80,7 @@
             background: #b45309;
             transform: scale(1.05);
         }
-        
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -153,12 +154,12 @@
             opacity: 1;
             visibility: visible;
         }
-        
+
         img {
             max-width: 100%;
             height: auto;
         }
-        
+
         @media (max-width: 768px) {
             .hero-gradient h1 {
                 font-size: 3.8rem !important;
@@ -170,15 +171,15 @@
                 font-size: 1rem;
             }
         }
-        
+
         .char-img-container {
             background: #f2ede6;
         }
-        
+
         section {
             scroll-margin-top: 80px;
         }
-        
+
         @media (max-width: 768px) {
             .desktop-nav-links {
                 display: none !important;
@@ -189,12 +190,12 @@
                 justify-content: center;
             }
         }
-        
+
         .font-logo {
             font-family: 'Times New Roman', serif;
             letter-spacing: -0.02em;
         }
-        
+
         .character-lore {
             font-size: 0.8rem;
             line-height: 1.5;
@@ -203,7 +204,7 @@
             padding-top: 0.75rem;
             border-top: 1px solid #e9e2d9;
         }
-        
+
         .cozy-badge {
             background: #fef3e2;
             display: inline-block;
@@ -213,19 +214,48 @@
             font-weight: bold;
             color: #b45309;
         }
+
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -3rem;
+            background: #2c241a;
+            color: #fdfaf6;
+            padding: 0.65rem 1rem;
+            border-radius: 0.75rem;
+            z-index: 1100;
+            font-weight: bold;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus-visible {
+            top: 1rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            :root {
+                scroll-behavior: auto;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-[#fdfaf6] text-stone-900">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Mobile drawer overlay -->
-    <div class="drawer-overlay" id="drawerOverlay"></div>
-    <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+    <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true" aria-label="Mobile navigation">
         <button class="drawer-close" id="closeDrawerBtn" aria-label="Close menu">✕</button>
         <a href="#about" class="drawer-link">About</a>
         <a href="#characters" class="drawer-link">Cast</a>
         <a href="#features" class="drawer-link">Features</a>
-        <a href="https://github.com/CuteSense-Studios/As-You-Are-T" target="_blank" class="drawer-link">Source Code</a>
-        <a href="https://cutesense-studios.github.io/Official-Website/" target="_blank" class="drawer-link">Studio</a>
+        <a href="https://github.com/CuteSense-Studios/As-You-Are-T" target="_blank" rel="noopener noreferrer" class="drawer-link">Source Code</a>
+        <a href="https://cutesense-studios.github.io/Official-Website/" target="_blank" rel="noopener noreferrer" class="drawer-link">Studio</a>
         <a href="#download" class="drawer-link">Download</a>
     </div>
 
@@ -236,19 +266,19 @@
                     As You <span class="text-amber-700">Are</span>
                 </span>
             </div>
-            
+
             <div class="flex items-center space-x-4 md:space-x-8">
                 <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-stone-600 desktop-nav-links">
                     <a href="#about" class="hover:text-amber-700 transition-colors">About</a>
                     <a href="#characters" class="hover:text-amber-700 transition-colors">Cast</a>
                     <a href="#features" class="hover:text-amber-700 transition-colors">Features</a>
-                    <a href="https://github.com/CuteSense-Studios/As-You-Are-T" class="hover:text-amber-700 transition-colors" target="_blank">Source Code</a>
+                    <a href="https://github.com/CuteSense-Studios/As-You-Are-T" class="hover:text-amber-700 transition-colors" target="_blank" rel="noopener noreferrer">Source Code</a>
                     <a href="https://cutesense-studios.github.io/Official-Website/" class="hover:text-amber-700 transition-colors">Studio</a>
                 </div>
-                
+
                 <a href="#download" class="btn-primary px-5 py-2 rounded-full text-sm font-bold">Download</a>
-                
-                <button class="mobile-menu-btn md:hidden" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false">
+
+                <button class="mobile-menu-btn md:hidden" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
                     ☕
                 </button>
             </div>
@@ -257,18 +287,18 @@
 
     <header class="relative w-full h-screen overflow-hidden flex items-center justify-center text-center px-4">
         <div class="absolute inset-0 z-0">
-            <img src="images/banner/banner.webp" alt="As You Are Banner - Cozy cafe interior" 
-                 class="w-full h-full object-cover scale-110 animate-[coffee-drift_30s_infinite_alternate]">
+            <img src="images/banner/banner.webp" alt="As You Are Banner - Cozy cafe interior"
+                 class="w-full h-full object-cover scale-110 animate-[coffee-drift_30s_infinite_alternate]" loading="eager" fetchpriority="high" decoding="async">
             <div class="absolute inset-0 bg-white/10"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-stone-900/5 via-transparent to-[#fdfaf6]"></div>
         </div>
-        
+
         <div class="relative z-10 max-w-5xl mx-auto opacity-0 animate-[fade-up_1.2s_ease-out_forwards]">
             <div class="space-y-6">
                 <h1 class="text-7xl md:text-[11rem] font-serif font-bold text-stone-900 leading-[0.9] drop-shadow-[0_2px_15px_rgba(255,255,255,0.9)]">
                     As You <span class="text-amber-700 drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]">Are</span>
                 </h1>
-                
+
                 <p class="text-xl md:text-3xl font-serif italic text-stone-800 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-[0_1px_5px_rgba(255,255,255,0.8)]">
                     "Where every cup tells a story and every bond is brewed to perfection."
                 </p>
@@ -279,13 +309,13 @@
                     You've inherited a sleepy café with a whispered past. But within these worn wooden walls, you'll discover that the right cup of tea — and an honest heart — can mend almost anything. Step into the Syth Café, where every customer carries a story, and your choices will shape the warmth of a community.
                 </div>
             </div>
-            
+
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
-                <a href="#download" 
+                <a href="#download"
                    class="btn-primary px-12 py-5 rounded-[2rem] text-xl font-bold shadow-xl hover:scale-105 active:scale-95 transition-all duration-300">
                     Begin Your Story
                 </a>
-                <a href="#characters" 
+                <a href="#characters"
                    class="btn-secondary bg-white px-12 py-5 rounded-[2rem] text-xl font-bold shadow-lg hover:scale-105 active:scale-95 transition-all duration-300">
                     Meet the Regulars
                 </a>
@@ -307,7 +337,7 @@
             }
         </style>
     </header>
-
+    <main id="main-content">
     <section id="characters" class="py-24 max-w-7xl mx-auto px-4">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-serif font-bold text-stone-800 mb-4">Meet the Regulars</h2>
@@ -489,15 +519,16 @@
                     </div>
                 </a>
             </div>
+        </div>
     </section>
-
+    </main>
     <footer class="py-16 border-t border-stone-200 bg-white">
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-            
+
             <div class="flex items-center gap-5">
                 <div class="flex-shrink-0">
-                    <img src="assets/icons/company_logo.webp" alt="CuteSense Studios Logo" 
+                    <img src="assets/icons/company_logo.webp" alt="CuteSense Studios Logo"
                          style="height: 64px; width: auto; object-fit: contain;" loading="lazy">
                 </div>
                 <div class="text-left">
@@ -512,7 +543,7 @@
                 <a href="https://cutesense-studios.github.io/Official-Website/" class="hover:text-amber-700 transition-colors">Official Website</a>
                 <a href="#about" class="hover:text-amber-700 transition-colors">About Game</a>
                 <a href="#characters" class="hover:text-amber-700 transition-colors">Characters</a>
-                <a href="https://github.com/CuteSense-Studios/As-You-Are-T" class="hover:text-amber-700 transition-colors" target="_blank">Source Code</a>
+                <a href="https://github.com/CuteSense-Studios/As-You-Are-T" class="hover:text-amber-700 transition-colors" target="_blank" rel="noopener noreferrer">Source Code</a>
             </nav>
         </div>
 
@@ -522,7 +553,7 @@
             <div class="text-stone-400 text-[10px] font-bold uppercase tracking-widest px-4">
                 © <span id="year"></span> CuteSense Studios. Art and story developed with passion.
             </div>
-            
+
             <div class="flex items-center justify-center gap-3 font-semibold text-stone-500 text-[10px] uppercase tracking-widest">
                 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-700 transition-colors">CC BY-SA 4.0</a>
                 <span class="w-1 h-1 rounded-full bg-stone-300"></span>
@@ -544,6 +575,13 @@
 
     <script>
         (function() {
+            const mobileDrawer = document.getElementById('mobileDrawer');
+            const overlay = document.getElementById('drawerOverlay');
+            const openBtn = document.getElementById('mobileMenuToggle');
+            const closeBtn = document.getElementById('closeDrawerBtn');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
@@ -551,7 +589,7 @@
                     const targetElem = document.querySelector(targetId);
                     if (targetElem) {
                         e.preventDefault();
-                        targetElem.scrollIntoView({ behavior: 'smooth' });
+                        targetElem.scrollIntoView({ behavior: scrollBehavior });
                         if (mobileDrawer && mobileDrawer.classList.contains('open')) {
                             closeDrawer();
                         }
@@ -559,21 +597,21 @@
                 });
             });
 
-            const mobileDrawer = document.getElementById('mobileDrawer');
-            const overlay = document.getElementById('drawerOverlay');
-            const openBtn = document.getElementById('mobileMenuToggle');
-            const closeBtn = document.getElementById('closeDrawerBtn');
-            const drawerLinks = document.querySelectorAll('.drawer-link');
-
             function openDrawer() {
+                if (!mobileDrawer || !overlay) return;
                 mobileDrawer.classList.add('open');
                 overlay.classList.add('active');
+                mobileDrawer.setAttribute('aria-hidden', 'false');
+                overlay.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
                 if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
             }
             function closeDrawer() {
+                if (!mobileDrawer || !overlay) return;
                 mobileDrawer.classList.remove('open');
                 overlay.classList.remove('active');
+                mobileDrawer.setAttribute('aria-hidden', 'true');
+                overlay.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
                 if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
             }
@@ -581,21 +619,26 @@
             if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
             if (overlay) overlay.addEventListener('click', closeDrawer);
             drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
-
-            const backBtn = document.getElementById('backToTopBtn');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 600) {
-                    backBtn.classList.add('visible');
-                } else {
-                    backBtn.classList.remove('visible');
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
+                    closeDrawer();
                 }
             });
+
+            const backBtn = document.getElementById('backToTopBtn');
             if (backBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 600) {
+                        backBtn.classList.add('visible');
+                    } else {
+                        backBtn.classList.remove('visible');
+                    }
+                });
                 backBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({ top: 0, behavior: scrollBehavior });
                 });
             }
-            
+
             const allImgs = document.querySelectorAll('img:not([loading])');
             allImgs.forEach(img => {
                 if (!img.closest('.hero-gradient') && !img.src.includes('banner.webp')) {

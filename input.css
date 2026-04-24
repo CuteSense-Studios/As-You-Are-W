@@ -48,12 +48,32 @@
   font-display: swap;
 }
 
+/* Marborn - Brand "As You" Font */
+@font-face {
+  font-family: 'Marborn';
+  src: url('./assets/fonts/marborn/Marborn.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Leckerli One - Brand "Are" Font */
+@font-face {
+  font-family: 'Leckerli One';
+  src: url('./assets/fonts/Leckerli_One/LeckerliOne-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* 3. TAILWIND V4 THEME */
 @theme {
   /* Mapping fonts to standard Tailwind utilities */
   --font-sans: "Quicksand", ui-sans-serif, system-ui;
   --font-serif: "Playfair Display", ui-serif, Georgia;
   --font-logo: "Borel", cursive;
+  --font-brand-as-you: "Marborn", serif;
+  --font-brand-are: "Leckerli One", cursive;
 
   /* Tiaya's Palette */
   --color-cafe-brown: #8c6a53;
@@ -68,6 +88,14 @@
 /* Explicitly defining font-logo to ensure it overrides inherited serif styles */
 @utility font-logo {
   font-family: 'Borel', cursive !important;
+}
+
+@utility font-brand-as-you {
+  font-family: 'Marborn', serif;
+}
+
+@utility font-brand-are {
+  font-family: 'Leckerli One', cursive;
 }
 
 @utility btn-primary {
